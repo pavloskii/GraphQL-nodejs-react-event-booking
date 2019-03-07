@@ -9,7 +9,7 @@ module.exports = {
     }
 
     try {
-      const bookings = await Booking.find();
+      const bookings = await Booking.find({ user: req.userId });
       return bookings.map(booking => {
         return transforBooking(booking);
       });
